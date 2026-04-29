@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://nc30opusebq4"]
+
+[ext_resource type="Texture2D" uid="uid://c2brrub125gxw" path="res://images/MenuBackground.jpg" id="1_upctu"]
+[ext_resource type="PackedScene" uid="uid://y4odajldkxfk" path="res://components/select_minigame.tscn" id="2_upctu"]
+[ext_resource type="PackedScene" uid="uid://ha1yvxs3oqaw" path="res://scenes/Game1.tscn" id="3_11y2r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_upctu"]
+
+[node name="Menu" type="Control" unique_id=1106445163]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=835979590]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("1_upctu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1121006929]
+layout_mode = 0
+offset_top = 1000.0
+offset_right = 1080.0
+offset_bottom = 1618.0
+alignment = 1
+
+[node name="MinigameSelect" parent="HBoxContainer" unique_id=4380741 instance=ExtResource("2_upctu")]
+layout_mode = 2
+scene = ExtResource("3_11y2r")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=393677843]
+layout_mode = 2
+theme_override_constants/margin_left = 118
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="MinigameSelect2" parent="HBoxContainer" unique_id=1050241683 instance=ExtResource("2_upctu")]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_upctu")
+texture_pressed = ExtResource("1_upctu")
+stretch_mode = 1

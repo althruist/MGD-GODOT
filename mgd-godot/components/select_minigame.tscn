@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://y4odajldkxfk"]
+
+[ext_resource type="Texture2D" uid="uid://ennnj13xr15l" path="res://images/ui/outlineborders/outline1.png" id="1_bt4yk"]
+[ext_resource type="Script" uid="uid://ckmbhs8xrewjn" path="res://scripts/minigame_selector.gd" id="1_xqn41"]
+[ext_resource type="AnimationLibrary" uid="uid://dantxem7hiosj" path="res://animations/MainMenuButton.res" id="3_bors3"]
+
+[sub_resource type="Gradient" id="Gradient_upctu"]
+colors = PackedColorArray(2.0214916e-06, 0.5918652, 0.83413506, 1, 0.47705483, 0.43794692, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_11y2r"]
+gradient = SubResource("Gradient_upctu")
+fill_from = Vector2(0.0022935779, 0)
+
+[sub_resource type="Animation" id="Animation_u6rq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Outline:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a353x"]
+_data = {
+&"RESET": SubResource("Animation_u6rq1")
+}
+
+[node name="MinigameSelect" type="TextureButton" unique_id=4380741 node_paths=PackedStringArray("anim_player", "button")]
+z_index = 1
+custom_minimum_size = Vector2(422, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -274.66998
+offset_right = 211.0
+offset_bottom = 344.3296
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+texture_normal = SubResource("GradientTexture2D_11y2r")
+stretch_mode = 0
+script = ExtResource("1_xqn41")
+anim_player = NodePath("ButtonInteractions")
+button = NodePath(".")
+
+[node name="Outline" type="TextureRect" parent="." unique_id=516521422]
+self_modulate = Color(0.29571748, 0.6823108, 0.4944592, 1)
+custom_minimum_size = Vector2(422, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -309.0
+offset_right = 211.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.13, 1.13)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_bt4yk")
+
+[node name="ButtonInteractions" type="AnimationPlayer" parent="." unique_id=978763994]
+libraries/ = SubResource("AnimationLibrary_a353x")
+libraries/MainMenuButton = ExtResource("3_bors3")
+
+[node name="BoilOutline" type="AnimationPlayer" parent="." unique_id=1366484916]
+libraries/MainMenuButton = ExtResource("3_bors3")
+autoplay = &"MainMenuButton/BoilOutline"
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
