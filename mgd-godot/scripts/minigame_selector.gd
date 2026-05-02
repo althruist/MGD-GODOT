@@ -8,6 +8,8 @@ var isPressed = false
 func _on_button_down() -> void:
 	if isPressed: return
 	anim_player.play("MainMenuButton/Down")
+	$AudioStreamPlayer.stream = load("res://audio/interactions/click.mp3")
+	$AudioStreamPlayer.play()
 	create_tween().tween_property(get_node("."), "rotation", randf_range(-0.1, 0.1), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 

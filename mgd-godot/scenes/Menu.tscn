@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b046q1nkjkxik" path="res://scenes/Game2.tscn" id="4_o0tnf"]
 [ext_resource type="Texture2D" uid="uid://h8j6iyopjjvb" path="res://images/panels/ftn.jpg" id="5_aaywf"]
 [ext_resource type="Texture2D" uid="uid://2m1tvbm3tgtv" path="res://images/title.png" id="7_1abgu"]
+[ext_resource type="AudioStream" uid="uid://dc8luk6xj26t5" path="res://audio/mainmenu.mp3" id="8_1abgu"]
 
 [sub_resource type="Animation" id="Animation_yt8fu"]
 resource_name = "Idle"
@@ -66,7 +67,7 @@ _data = {
 &"RESET": SubResource("Animation_4umqm")
 }
 
-[node name="NewMenu" type="Control" unique_id=286740742]
+[node name="Menu" type="Control" unique_id=286740742]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,7 +120,8 @@ scene = ExtResource("4_o0tnf")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 823.0
+offset_top = 6.171609
+offset_bottom = 829.17163
 grow_horizontal = 2
 texture = ExtResource("7_1abgu")
 stretch_mode = 5
@@ -127,3 +129,8 @@ stretch_mode = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect2" unique_id=2096231818]
 libraries/ = SubResource("AnimationLibrary_pp5m5")
 autoplay = &"Idle"
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="." unique_id=100843103]
+stream = ExtResource("8_1abgu")
+autoplay = true
+parameters/looping = true

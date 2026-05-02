@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dkx4fli10lhnv" path="res://images/ui/circlebutton.png" id="1_32rcp"]
 [ext_resource type="Texture2D" uid="uid://b8jjavg67d10k" path="res://images/ui/icons/back.png" id="2_0i7ar"]
 [ext_resource type="Script" uid="uid://bjqh1i1gwyikb" path="res://scripts/scene_button.gd" id="2_b2td4"]
+[ext_resource type="AudioStream" uid="uid://o6yisnefuapf" path="res://audio/interactions/click.mp3" id="4_b2td4"]
 
 [sub_resource type="Animation" id="Animation_32rcp"]
 length = 0.001
@@ -157,6 +158,9 @@ texture = ExtResource("2_0i7ar")
 libraries/ = SubResource("AnimationLibrary_0i7ar")
 libraries/SceneButton = SubResource("AnimationLibrary_spg4f")
 autoplay = &"SceneButton/Idle"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1532595077]
+stream = ExtResource("4_b2td4")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

@@ -5,6 +5,8 @@ func processor(visible: bool, restart: bool = false, scene: PackedScene = null, 
 	if visible:
 		$".".move_to_front()
 		$AnimationPlayer.play("Show")
+		$AudioStreamPlayer.stream = load("res://audio/interactions/transition.mp3")
+		$AudioStreamPlayer.play()
 		if sceneRoot:
 			var tween = get_tree().create_tween()
 			tween.tween_property(sceneRoot, "scale", Vector2(5,5), 0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

@@ -114,6 +114,9 @@ libraries/MainMenuButton = ExtResource("3_bors3")
 libraries/MainMenuButton = ExtResource("3_bors3")
 autoplay = &"MainMenuButton/BoilOutline"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=462366505]
+volume_db = 1.0
+
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
