@@ -5,25 +5,24 @@ var correctNumber
 var round = 0
 var correct_node: Control
 
-func _button_pressed(node: Control, value: int):
+func _button_pressed(node: Control, value: int): # gets the '$"."' and 'value' from earlier
 
-	if value == correctNumber:
-		Input.vibrate_handheld(100, 0.5)
+	if value == correctNumber: # Checks if it's the correct number
+		Input.vibrate_handheld(100, 0.5) # cool fancy stuff
 		node.get_node("AnimationPlayer").play("Correct")
 		await get_tree().create_timer(0.4).timeout
 		node.get_node("AnimationPlayer").play("Idle")
-		startRound()
-	else:
-		node.get_node("AnimationPlayer").play("Incorrect")
-		correct_node.get_node("AnimationPlayer").play("Correct")
-		_say(str(correctNumber))
+		startRound() # starts new round
+	else: # if incorrect
+		node.get_node("AnimationPlayer").play("Incorrect") # more fancy stuff
+		correct_node.get_node("AnimationPlayer").play("Correct") # can you tell i like animating?
+		_say(str(correctNumber)) # says the correct number
 		Input.vibrate_handheld(300, 1)
 
 		await get_tree().create_timer(0.4).timeout
 
-		node.get_node("AnimationPlayer").play("Idle")
+		node.get_node("AnimationPlayer").play("Idle") # ... more fancy stuff
 		correct_node.get_node("AnimationPlayer").play("Idle")
-
 
 func _say(text: String):
 	DisplayServer.tts_speak(text, "", 100, 1.5, 0.8, 0, true)
@@ -41,10 +40,9 @@ func shuffleNumbers() -> void:
 	_say(str(correctNumber))
 	print("correct number:", correctNumber)
 	
-	for selectable in selectables:
-		if selectable.buttonPressed.is_connected(_button_pressed):
-			print("disconnecting")
-			selectable.buttonPressed.disconnect(_button_pressed)
+	for selectable in selectables: # this is every button
+		if selectable.buttonPressed.is_connected(_button_pressed): # checks if the connection already exists
+			selectable.buttonPressed.disconnect(_button_pressed) # if it does, it disconnects so there's no weird issues
 		var generatedNum = randi_range(0, 100)
 
 		while numbers.has(generatedNum):
@@ -57,7 +55,7 @@ func shuffleNumbers() -> void:
 
 		selectable.value = generatedNum
 		selectable.get_node("TextureButton/Label").text = str(generatedNum)
-		selectable.buttonPressed.connect(_button_pressed)
+		selectable.buttonPressed.connect(_button_pressed) # reconnects to the function _button_pressed
 
 func startRound():
 	if round == 2:

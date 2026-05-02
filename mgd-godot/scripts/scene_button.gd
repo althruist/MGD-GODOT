@@ -17,6 +17,6 @@ func _on_button_up() -> void:
 func _on_pressed() -> void:
 	Input.vibrate_handheld(2000, 1)
 	if navigate == Navigate.RESTART:
-		TransitionScreen.processor(true, true, null, root)
+		TransitionScreen.processor(true, true, null, root) # passes visible = true, restart = true, scene = null, sceneRoot = root
 	elif navigate == Navigate.BACK:
-		TransitionScreen.processor(true, false, load("res://scenes/Menu.tscn"), root)
+		TransitionScreen.processor(true, false, load("res://scenes/Menu.tscn"), root) # passes visible = true, restart = false, scene = Menu.tscn, sceneRoot = root

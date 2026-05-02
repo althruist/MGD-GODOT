@@ -32,21 +32,21 @@ func setAnswers(correct_answer: int) -> void:
 	for i in range(buttons.size()):
 		buttons[i].get_node("Label").text = str(answers[i])
 
-func onAnswersProvided(value):
-	if correctAnswer == value:
-		$DropArea/AnimationPlayer.play("Correct")
+func onAnswersProvided(value): # Gets the value (number)
+	if correctAnswer == value: # Checks if correct
+		$DropArea/AnimationPlayer.play("Correct") # does fancy stuff like play animation and all that... need to explain?
 		$DropArea/Label.text = "Correct! :)"
 		Input.vibrate_handheld(100, 1)
 		await get_tree().create_timer(0.15).timeout
 		Input.vibrate_handheld(100, 0.5)
 		await get_tree().create_timer(0.35).timeout
-		startRound();
-	else:
+		startRound(); # Restarts new round
+	else: # if incorrect
 		$DropArea/AnimationPlayer.play("Incorrect")
 		$DropArea/Label.text = "Incorrect! :("
 		Input.vibrate_handheld(800, 1)
 		await get_tree().create_timer(0.5).timeout
-	$DropArea/Label.text = "Drop your\nanswer here!"
+	$DropArea/Label.text = "Drop your\nanswer here!" # Resets the text once everything is done
 
 func startRound():
 	if round == 4:
@@ -76,5 +76,5 @@ func startRound():
 	add_child(vfx)
 
 func _ready() -> void:
-	$DropArea.answer_provided.connect(onAnswersProvided)
+	$DropArea.answer_provided.connect(onAnswersProvided) # Connects the event to a function
 	startRound()
