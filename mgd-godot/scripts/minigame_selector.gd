@@ -1,8 +1,7 @@
 extends TextureButton
 
-@export var anim_player: AnimationPlayer;
+@export var anim_player: AnimationPlayer
 @export var scene: PackedScene
-@export var whiteTrans: ColorRect
 
 var isPressed = false
 
@@ -14,12 +13,13 @@ func _on_button_down() -> void:
 
 func _on_button_up() -> void:
 	if isPressed: return
-	isPressed = true
-	anim_player.play("MainMenuButton/Release")
 	create_tween().tween_property(get_node("."), "rotation", 0, 0.2)
-
+	anim_player.play("MainMenuButton/Exit")
 
 func _on_pressed() -> void:
+	Input.vibrate_handheld(2000, 1)
+	isPressed = true
 	get_node(".").z_index = 10
-	TransitionScreen.processor(true, scene)
+	anim_player.play("MainMenuButton/Release")
+	TransitionScreen.processor(true, false, scene)
 	pass

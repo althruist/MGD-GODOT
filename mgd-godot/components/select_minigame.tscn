@@ -65,7 +65,7 @@ _data = {
 &"RESET": SubResource("Animation_u6rq1")
 }
 
-[node name="MinigameSelect" type="TextureButton" unique_id=4380741 node_paths=PackedStringArray("anim_player", "button")]
+[node name="MinigameSelect" type="TextureButton" unique_id=4380741 node_paths=PackedStringArray("anim_player")]
 z_index = 1
 custom_minimum_size = Vector2(422, 0)
 anchors_preset = 8
@@ -85,10 +85,10 @@ texture_normal = SubResource("GradientTexture2D_11y2r")
 stretch_mode = 0
 script = ExtResource("1_xqn41")
 anim_player = NodePath("ButtonInteractions")
-button = NodePath(".")
 
 [node name="Outline" type="TextureRect" parent="." unique_id=516521422]
 self_modulate = Color(0.29571748, 0.6823108, 0.4944592, 1)
+texture_filter = 1
 custom_minimum_size = Vector2(422, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -96,9 +96,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
+offset_left = -215.48749
 offset_top = -309.0
-offset_right = 211.0
+offset_right = 215.48755
 offset_bottom = 309.0
 grow_horizontal = 2
 grow_vertical = 2

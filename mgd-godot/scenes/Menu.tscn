@@ -1,35 +1,106 @@
-[gd_scene format=3 uid="uid://nc30opusebq4"]
+[gd_scene format=3 uid="uid://cqqmtu16fh5g7"]
 
-[ext_resource type="Texture2D" uid="uid://c2brrub125gxw" path="res://images/MenuBackground.jpg" id="1_upctu"]
+[ext_resource type="Texture2D" uid="uid://c2brrub125gxw" path="res://images/background/MenuBackground.jpg" id="1_upctu"]
 [ext_resource type="PackedScene" uid="uid://y4odajldkxfk" path="res://components/select_minigame.tscn" id="2_upctu"]
 [ext_resource type="PackedScene" uid="uid://ha1yvxs3oqaw" path="res://scenes/Game1.tscn" id="3_11y2r"]
+[ext_resource type="Texture2D" uid="uid://hmuhvo6vmybp" path="res://images/panels/additions.jpg" id="3_jmdev"]
+[ext_resource type="PackedScene" uid="uid://b046q1nkjkxik" path="res://scenes/Game2.tscn" id="4_o0tnf"]
+[ext_resource type="Texture2D" uid="uid://h8j6iyopjjvb" path="res://images/panels/ftn.jpg" id="5_aaywf"]
+[ext_resource type="Texture2D" uid="uid://2m1tvbm3tgtv" path="res://images/title.png" id="7_1abgu"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_upctu"]
+[sub_resource type="Animation" id="Animation_yt8fu"]
+resource_name = "Idle"
+length = 1.3333367
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.055332325, 0, 0.055778794, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6666667, 1.3333334)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 16.39, -0.055332325, 0, 0.055778794, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6666667, 1.3333334)
+}
 
-[node name="Menu" type="Control" unique_id=1106445163]
+[sub_resource type="Animation" id="Animation_4umqm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pp5m5"]
+_data = {
+&"Idle": SubResource("Animation_yt8fu"),
+&"RESET": SubResource("Animation_4umqm")
+}
+
+[node name="NewMenu" type="Control" unique_id=286740742]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=835979590]
 texture_filter = 1
-layout_mode = 0
-offset_right = 1080.0
-offset_bottom = 1920.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_upctu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1121006929]
-layout_mode = 0
-offset_top = 1000.0
-offset_right = 1080.0
-offset_bottom = 1618.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1041.2949
+offset_bottom = -398.29517
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
 
-[node name="MinigameSelect" parent="HBoxContainer" unique_id=4380741 instance=ExtResource("2_upctu")]
+[node name="Game1" parent="HBoxContainer" unique_id=4380741 instance=ExtResource("2_upctu")]
 layout_mode = 2
+texture_normal = ExtResource("3_jmdev")
 scene = ExtResource("3_11y2r")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=393677843]
@@ -39,8 +110,20 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="MinigameSelect2" parent="HBoxContainer" unique_id=1050241683 instance=ExtResource("2_upctu")]
+[node name="Game2" parent="HBoxContainer" unique_id=714693657 instance=ExtResource("2_upctu")]
 layout_mode = 2
-texture_normal = SubResource("PlaceholderTexture2D_upctu")
-texture_pressed = ExtResource("1_upctu")
-stretch_mode = 1
+texture_normal = ExtResource("5_aaywf")
+scene = ExtResource("4_o0tnf")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=838411939]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 823.0
+grow_horizontal = 2
+texture = ExtResource("7_1abgu")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect2" unique_id=2096231818]
+libraries/ = SubResource("AnimationLibrary_pp5m5")
+autoplay = &"Idle"

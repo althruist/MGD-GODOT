@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://6gviu8rhrubh"]
+
+[ext_resource type="Texture2D" uid="uid://dkx4fli10lhnv" path="res://images/ui/circlebutton.png" id="1_32rcp"]
+[ext_resource type="Texture2D" uid="uid://b8jjavg67d10k" path="res://images/ui/icons/back.png" id="2_0i7ar"]
+[ext_resource type="Script" uid="uid://bjqh1i1gwyikb" path="res://scripts/scene_button.gd" id="2_b2td4"]
+
+[sub_resource type="Animation" id="Animation_32rcp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:custom_minimum_size:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:custom_minimum_size:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i7ar"]
+_data = {
+&"RESET": SubResource("Animation_32rcp")
+}
+
+[sub_resource type="Animation" id="Animation_0i7ar"]
+resource_name = "Down"
+length = 0.16667001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(196, 0, 0, 0.06666667, -52, 152, 0, -9, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:custom_minimum_size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(196, 0, 0, 0.06666667, -75, 153, 0, -6, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+
+[sub_resource type="Animation" id="Animation_b2td4"]
+length = 0.26667002
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_spg4f"]
+resource_name = "Up"
+length = 0.16667001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(152, 0, 0, 0.033333335, -50, 200, -0.03333333, 22, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:custom_minimum_size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(153, 0, 0, 0.033333335, -44, 200, 0, 4, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spg4f"]
+_data = {
+&"Down": SubResource("Animation_0i7ar"),
+&"Idle": SubResource("Animation_b2td4"),
+&"Up": SubResource("Animation_spg4f")
+}
+
+[node name="SceneButton" type="TextureButton" unique_id=1412378208]
+self_modulate = Color(0.54901963, 0.7607843, 0.5254902, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(196, 196)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -98.0
+offset_right = 98.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_32rcp")
+stretch_mode = 0
+script = ExtResource("2_b2td4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=367756228]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_0i7ar")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1846794249]
+libraries/ = SubResource("AnimationLibrary_0i7ar")
+libraries/SceneButton = SubResource("AnimationLibrary_spg4f")
+autoplay = &"SceneButton/Idle"
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

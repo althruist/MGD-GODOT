@@ -1,0 +1,622 @@
+[gd_scene format=3 uid="uid://b046q1nkjkxik"]
+
+[ext_resource type="Script" uid="uid://dplvvsrrnl2al" path="res://scenes/game_2.gd" id="1_4mt8w"]
+[ext_resource type="Texture2D" uid="uid://dt6g304qg8xgg" path="res://images/background/game2/frame0000.png" id="1_8hw8b"]
+[ext_resource type="Texture2D" uid="uid://bo6khhyjv8re2" path="res://images/background/game2/frame0001.png" id="2_eetn8"]
+[ext_resource type="Texture2D" uid="uid://dkx4fli10lhnv" path="res://images/ui/circlebutton.png" id="3_tof3h"]
+[ext_resource type="Script" uid="uid://bjqh1i1gwyikb" path="res://scripts/scene_button.gd" id="4_43ixd"]
+[ext_resource type="Texture2D" uid="uid://b8jjavg67d10k" path="res://images/ui/icons/back.png" id="5_xplks"]
+[ext_resource type="Texture2D" uid="uid://ctugfx7b72peu" path="res://images/ui/icons/restart.png" id="6_4mt8w"]
+[ext_resource type="Texture2D" uid="uid://cgfyiutxb8ynh" path="res://images/ui/button.png" id="7_43ixd"]
+[ext_resource type="PackedScene" uid="uid://ck4swwckfjppd" path="res://components/selectable_number.tscn" id="8_xplks"]
+[ext_resource type="FontFile" uid="uid://ddt1rhjd0s338" path="res://fonts/ALTHITE_0.TTF" id="10_tlps1"]
+
+[sub_resource type="Animation" id="Animation_akvk8"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_8hw8b"), ExtResource("2_eetn8")]
+}
+
+[sub_resource type="Animation" id="Animation_2625v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8hw8b")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tof3h"]
+_data = {
+&"Idle": SubResource("Animation_akvk8"),
+&"RESET": SubResource("Animation_2625v")
+}
+
+[sub_resource type="Animation" id="Animation_32rcp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:custom_minimum_size:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:custom_minimum_size:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tlps1"]
+_data = {
+&"RESET": SubResource("Animation_32rcp")
+}
+
+[sub_resource type="Animation" id="Animation_0i7ar"]
+resource_name = "Down"
+length = 0.16667001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(196, 0, 0, 0.06666667, -52, 152, 0, -9, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:custom_minimum_size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(196, 0, 0, 0.06666667, -75, 153, 0, -6, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+
+[sub_resource type="Animation" id="Animation_b2td4"]
+length = 0.26667002
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_spg4f"]
+resource_name = "Up"
+length = 0.16667001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(152, 0, 0, 0.033333335, -50, 200, -0.03333333, 22, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:custom_minimum_size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(153, 0, 0, 0.033333335, -44, 200, 0, 4, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6slyv"]
+_data = {
+&"Down": SubResource("Animation_0i7ar"),
+&"Idle": SubResource("Animation_b2td4"),
+&"Up": SubResource("Animation_spg4f")
+}
+
+[sub_resource type="Animation" id="Animation_a58ko"]
+resource_name = "Down"
+length = 0.10000334
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Replay:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, 0, 0, 0.033333335, -0.08575654, 0.83, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Replay:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, 0, 0, 0.033333335, -0.0879997, 0.83, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Replay:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.6627451)]
+}
+
+[sub_resource type="Animation" id="Animation_cr3rr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Replay:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Replay:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Replay:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a1tbd"]
+resource_name = "Up"
+length = 0.20000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Replay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.101680025),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.6627451), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Replay:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0.83, 0, 0, 0.033333335, 0, 1.155, -0.033333335, 0, 0.03333445, 0, 1, -0.03333445, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.20000334)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Replay:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0.83, 0, 0, 0.022222225, 0, 1.155, -0.022222225, 0, 0.044445556, 0, 1, -0.044445556, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.06666667, 0.20000334)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1moh"]
+_data = {
+&"Down": SubResource("Animation_a58ko"),
+&"RESET": SubResource("Animation_cr3rr"),
+&"Up": SubResource("Animation_a1tbd")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_6slyv"]
+font = ExtResource("10_tlps1")
+font_size = 98
+
+[node name="Game2" type="Control" unique_id=1720658465]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_4mt8w")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=894925462]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8hw8b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect" unique_id=1020138547]
+libraries/ = SubResource("AnimationLibrary_tof3h")
+autoplay = &"Idle"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=240489166]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -220.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Exit" type="TextureButton" parent="HBoxContainer" unique_id=544703140 node_paths=PackedStringArray("root")]
+self_modulate = Color(0.40068102, 0.7252436, 0.9914474, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(196, 196)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_tof3h")
+stretch_mode = 0
+script = ExtResource("4_43ixd")
+root = NodePath("../..")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Exit" unique_id=1885957055]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_xplks")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Exit" unique_id=483075056]
+libraries/ = SubResource("AnimationLibrary_tlps1")
+libraries/SceneButton = SubResource("AnimationLibrary_6slyv")
+autoplay = &"SceneButton/Idle"
+
+[node name="Restart" type="TextureButton" parent="HBoxContainer" unique_id=462433331 node_paths=PackedStringArray("root")]
+self_modulate = Color(0.40068102, 0.7252436, 0.9914474, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(196, 196)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_tof3h")
+stretch_mode = 0
+script = ExtResource("4_43ixd")
+navigate = 1
+root = NodePath("../..")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Restart" unique_id=179568975]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("6_4mt8w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Restart" unique_id=2030625389]
+libraries/ = SubResource("AnimationLibrary_tlps1")
+libraries/SceneButton = SubResource("AnimationLibrary_6slyv")
+autoplay = &"SceneButton/Idle"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1294197832]
+self_modulate = Color(0.025661439, 0.31002933, 0.47881043, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -692.0
+offset_right = 500.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("7_43ixd")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=1645315919]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="Selectable1" parent="NinePatchRect/GridContainer" unique_id=1306627928 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable2" parent="NinePatchRect/GridContainer" unique_id=1163476885 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable3" parent="NinePatchRect/GridContainer" unique_id=1409320056 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable4" parent="NinePatchRect/GridContainer" unique_id=2084902532 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable5" parent="NinePatchRect/GridContainer" unique_id=875027731 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable6" parent="NinePatchRect/GridContainer" unique_id=624065744 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable7" parent="NinePatchRect/GridContainer" unique_id=742118477 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable8" parent="NinePatchRect/GridContainer" unique_id=1737156448 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable9" parent="NinePatchRect/GridContainer" unique_id=45291186 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable10" parent="NinePatchRect/GridContainer" unique_id=510879090 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable11" parent="NinePatchRect/GridContainer" unique_id=1901891432 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable12" parent="NinePatchRect/GridContainer" unique_id=120896406 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable13" parent="NinePatchRect/GridContainer" unique_id=186731412 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable14" parent="NinePatchRect/GridContainer" unique_id=925309233 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable15" parent="NinePatchRect/GridContainer" unique_id=153510674 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable16" parent="NinePatchRect/GridContainer" unique_id=15571091 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable17" parent="NinePatchRect/GridContainer" unique_id=218371519 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable18" parent="NinePatchRect/GridContainer" unique_id=2144002652 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable19" parent="NinePatchRect/GridContainer" unique_id=1352744211 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable20" parent="NinePatchRect/GridContainer" unique_id=1644177124 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable21" parent="NinePatchRect/GridContainer" unique_id=435381099 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable22" parent="NinePatchRect/GridContainer" unique_id=45441914 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable23" parent="NinePatchRect/GridContainer" unique_id=1799354347 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable24" parent="NinePatchRect/GridContainer" unique_id=831718939 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable25" parent="NinePatchRect/GridContainer" unique_id=1215836272 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable26" parent="NinePatchRect/GridContainer" unique_id=477376023 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable27" parent="NinePatchRect/GridContainer" unique_id=2134280675 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable28" parent="NinePatchRect/GridContainer" unique_id=1350051548 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable29" parent="NinePatchRect/GridContainer" unique_id=844295646 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable30" parent="NinePatchRect/GridContainer" unique_id=1831672825 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable31" parent="NinePatchRect/GridContainer" unique_id=1774230260 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable32" parent="NinePatchRect/GridContainer" unique_id=22144415 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable33" parent="NinePatchRect/GridContainer" unique_id=2138335722 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable34" parent="NinePatchRect/GridContainer" unique_id=1824232148 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable35" parent="NinePatchRect/GridContainer" unique_id=704657505 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Selectable36" parent="NinePatchRect/GridContainer" unique_id=1595119331 groups=["Selectable"] instance=ExtResource("8_xplks")]
+layout_mode = 2
+
+[node name="Replay" type="TextureButton" parent="." unique_id=1196148078]
+self_modulate = Color(0.4, 0.7254902, 0.99215686, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 208.0
+offset_top = -547.0
+offset_right = -214.0
+offset_bottom = -333.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Replay" unique_id=397202638]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_v1moh")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Replay" unique_id=165243615]
+self_modulate = Color(0.4, 0.7254902, 0.99215686, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_43ixd")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Label" type="Label" parent="Replay/NinePatchRect" unique_id=916216023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Replay Sound"
+label_settings = SubResource("LabelSettings_6slyv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="HBoxContainer/Exit" to="HBoxContainer/Exit" method="_on_button_down"]
+[connection signal="button_up" from="HBoxContainer/Exit" to="HBoxContainer/Exit" method="_on_button_up"]
+[connection signal="pressed" from="HBoxContainer/Exit" to="HBoxContainer/Exit" method="_on_pressed"]
+[connection signal="button_down" from="HBoxContainer/Restart" to="HBoxContainer/Restart" method="_on_button_down"]
+[connection signal="button_up" from="HBoxContainer/Restart" to="HBoxContainer/Restart" method="_on_button_up"]
+[connection signal="pressed" from="HBoxContainer/Restart" to="HBoxContainer/Restart" method="_on_pressed"]
+[connection signal="button_down" from="Replay" to="." method="_on_replay_button_down"]
+[connection signal="button_up" from="Replay" to="." method="_on_replay_button_up"]
+[connection signal="pressed" from="Replay" to="." method="_on_replay_pressed"]
+
+[editable path="NinePatchRect/GridContainer/Selectable1"]
+[editable path="NinePatchRect/GridContainer/Selectable2"]
+[editable path="NinePatchRect/GridContainer/Selectable3"]
+[editable path="NinePatchRect/GridContainer/Selectable4"]
+[editable path="NinePatchRect/GridContainer/Selectable5"]
+[editable path="NinePatchRect/GridContainer/Selectable6"]
+[editable path="NinePatchRect/GridContainer/Selectable7"]
+[editable path="NinePatchRect/GridContainer/Selectable8"]
+[editable path="NinePatchRect/GridContainer/Selectable9"]
+[editable path="NinePatchRect/GridContainer/Selectable10"]
+[editable path="NinePatchRect/GridContainer/Selectable11"]
+[editable path="NinePatchRect/GridContainer/Selectable12"]
+[editable path="NinePatchRect/GridContainer/Selectable13"]
+[editable path="NinePatchRect/GridContainer/Selectable14"]
+[editable path="NinePatchRect/GridContainer/Selectable15"]
+[editable path="NinePatchRect/GridContainer/Selectable16"]
+[editable path="NinePatchRect/GridContainer/Selectable17"]
+[editable path="NinePatchRect/GridContainer/Selectable18"]
+[editable path="NinePatchRect/GridContainer/Selectable19"]
+[editable path="NinePatchRect/GridContainer/Selectable20"]
+[editable path="NinePatchRect/GridContainer/Selectable21"]
+[editable path="NinePatchRect/GridContainer/Selectable22"]
+[editable path="NinePatchRect/GridContainer/Selectable23"]
+[editable path="NinePatchRect/GridContainer/Selectable24"]
+[editable path="NinePatchRect/GridContainer/Selectable25"]
+[editable path="NinePatchRect/GridContainer/Selectable26"]
+[editable path="NinePatchRect/GridContainer/Selectable27"]
+[editable path="NinePatchRect/GridContainer/Selectable28"]
+[editable path="NinePatchRect/GridContainer/Selectable29"]
+[editable path="NinePatchRect/GridContainer/Selectable30"]
+[editable path="NinePatchRect/GridContainer/Selectable31"]
+[editable path="NinePatchRect/GridContainer/Selectable32"]
+[editable path="NinePatchRect/GridContainer/Selectable33"]
+[editable path="NinePatchRect/GridContainer/Selectable34"]
+[editable path="NinePatchRect/GridContainer/Selectable35"]
+[editable path="NinePatchRect/GridContainer/Selectable36"]

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="MGD-GODOT"
-run/main_scene="uid://nc30opusebq4"
+run/main_scene="uid://cqqmtu16fh5g7"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 TransitionScreen="*uid://bb6jsvbibsd1n"
+MessageScreen="*uid://dykeixmaxhtnn"
 
 [display]
 

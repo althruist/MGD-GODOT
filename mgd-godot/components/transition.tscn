@@ -105,8 +105,14 @@ _data = {
 
 [node name="Transition" type="ColorRect" unique_id=4033054]
 z_index = 100
-offset_right = 1080.0
-offset_bottom = 1920.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_force_pass_scroll_events = false
 color = Color(1, 1, 1, 0)
 script = ExtResource("1_ka3md")
 metadata/_edit_lock_ = true
