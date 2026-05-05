@@ -1,0 +1,455 @@
+[gd_scene format=3 uid="uid://cmkcx02i7o2u6"]
+
+[ext_resource type="Script" uid="uid://3vjalfpl2mkq" path="res://scripts/server.gd" id="1_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://bfbipk8w48bto" path="res://images/background.png" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://dah7mpm2kaj21" path="res://images/board.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dt75htjk5hxh4" path="res://components/window.tscn" id="4_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dy1wopka0o7xn" path="res://scenes/button.tscn" id="5_gee14"]
+[ext_resource type="Texture2D" uid="uid://bjwwpbicffq63" path="res://images/button.png" id="5_u5sy4"]
+[ext_resource type="Script" uid="uid://d3g6dhvpx6vel" path="res://scripts/join_window.gd" id="6_0tnpc"]
+[ext_resource type="FontFile" uid="uid://ch77c3cst75if" path="res://fonts/ALTHITE_0.TTF" id="6_gee14"]
+[ext_resource type="Script" uid="uid://bm443o37d2urb" path="res://scripts/join_button.gd" id="6_kvpfn"]
+[ext_resource type="Script" uid="uid://dgvaskbfi22h5" path="res://scripts/create_window.gd" id="6_vtaks"]
+[ext_resource type="Script" uid="uid://dtn5o8bj0feta" path="res://addons/godot-socketio/socketio.gd" id="11_kvpfn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lbhrr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gee14"]
+font = ExtResource("6_gee14")
+font_size = 273
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tnpc"]
+font = ExtResource("6_gee14")
+font_size = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tnpc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+border_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3689951, 0.59146833, 0.6618119, 1)
+corner_radius_top_left = 55
+corner_radius_top_right = 55
+corner_radius_bottom_right = 55
+corner_radius_bottom_left = 55
+corner_detail = 20
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="Control" type="Control" unique_id=1763599696]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_lnu2h")
+
+[node name="Background" type="TextureRect" parent="." unique_id=472633122]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yqjtg")
+
+[node name="Board" type="TextureRect" parent="." unique_id=1145998496]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_lnu2h")
+
+[node name="GridContainer" type="GridContainer" parent="Board" unique_id=1006028017]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -390.0
+offset_right = 390.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 185
+theme_override_constants/v_separation = 185
+columns = 3
+
+[node name="Control" type="Control" parent="Board/GridContainer" unique_id=919435894]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control" unique_id=1177372378]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control2" type="Control" parent="Board/GridContainer" unique_id=64622167]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control2" unique_id=1015180155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control3" type="Control" parent="Board/GridContainer" unique_id=859894992]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control3" unique_id=223275642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control4" type="Control" parent="Board/GridContainer" unique_id=1939188567]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control4" unique_id=1003829401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control5" type="Control" parent="Board/GridContainer" unique_id=718215472]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control5" unique_id=1642500206]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control6" type="Control" parent="Board/GridContainer" unique_id=769867254]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control6" unique_id=510011837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control7" type="Control" parent="Board/GridContainer" unique_id=1984239428]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control7" unique_id=1283829750]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control8" type="Control" parent="Board/GridContainer" unique_id=407656462]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control8" unique_id=515678451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="Control9" type="Control" parent="Board/GridContainer" unique_id=1715266302]
+custom_minimum_size = Vector2(137, 137)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Board/GridContainer/Control9" unique_id=1627373726]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("PlaceholderTexture2D_lbhrr")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=845533181]
+
+[node name="RoomJoinUI" type="Control" parent="." unique_id=1782688668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RoomJoinUI" unique_id=517840338]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.41960785)
+
+[node name="Window" parent="RoomJoinUI" unique_id=1133018686 instance=ExtResource("4_p57ef")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.076157406
+anchor_top = 0.31744793
+anchor_right = 0.9238426
+anchor_bottom = 0.6825521
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MainWindow" type="Control" parent="RoomJoinUI/Window" unique_id=149330547]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomJoinUI/Window/MainWindow" unique_id=1789564762]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -202.0
+offset_right = 273.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Create" parent="RoomJoinUI/Window/MainWindow/VBoxContainer" unique_id=1417608839 instance=ExtResource("5_gee14")]
+layout_mode = 2
+
+[node name="Join" parent="RoomJoinUI/Window/MainWindow/VBoxContainer" unique_id=585639710 instance=ExtResource("5_gee14")]
+layout_mode = 2
+
+[node name="Label" parent="RoomJoinUI/Window/MainWindow/VBoxContainer/Join/NinePatchRect" parent_id_path=PackedInt32Array(585639710, 1698111207) index="0" unique_id=901177049]
+text = "Join"
+
+[node name="CreateWindow" type="Control" parent="RoomJoinUI/Window" unique_id=1293659954 node_paths=PackedStringArray("mainWindow", "mainControl", "windowAnimator")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("6_vtaks")
+mainWindow = NodePath("../MainWindow")
+mainControl = NodePath("../../..")
+windowAnimator = NodePath("../AnimationPlayer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomJoinUI/Window/CreateWindow" unique_id=1445927456]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -202.0
+offset_right = 273.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Code" type="Label" parent="RoomJoinUI/Window/CreateWindow/VBoxContainer" unique_id=306282150]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+text = "-"
+label_settings = SubResource("LabelSettings_gee14")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SendCode" type="Label" parent="RoomJoinUI/Window/CreateWindow/VBoxContainer" unique_id=2027625988]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "send this code to your friend!"
+label_settings = SubResource("LabelSettings_0tnpc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JoinWindow" type="Control" parent="RoomJoinUI/Window" unique_id=1775855334 node_paths=PackedStringArray("mainWindow")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("6_0tnpc")
+mainWindow = NodePath("../MainWindow")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomJoinUI/Window/JoinWindow" unique_id=1660895915]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -202.0
+offset_right = 273.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Input" type="TextureRect" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer" unique_id=1381857796]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer/Input" unique_id=1710500371]
+self_modulate = Color(0.1318213, 0.28966853, 0.33625087, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u5sy4")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="LineEdit" type="LineEdit" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer/Input/NinePatchRect" unique_id=1565457310]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(0.79165417, 0.90132636, 0.89573884, 0.5019608)
+theme_override_colors/font_placeholder_color = Color(0.40623143, 0.7795421, 0.7437904, 0.6)
+theme_override_colors/caret_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/selection_color = Color(0.5019608, 0.5019608, 0.5019608, 0)
+theme_override_colors/clear_button_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/clear_button_color_pressed = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("6_gee14")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_gee14")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_0tnpc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vtaks")
+placeholder_text = "Input Code Here"
+alignment = 1
+
+[node name="Join" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer" unique_id=503901649 node_paths=PackedStringArray("input", "mainControl") instance=ExtResource("5_gee14")]
+layout_mode = 2
+script = ExtResource("6_kvpfn")
+input = NodePath("../Input/NinePatchRect/LineEdit")
+mainControl = NodePath("../../../../..")
+
+[node name="Label" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join/NinePatchRect" parent_id_path=PackedInt32Array(503901649, 1698111207) index="0" unique_id=901177049]
+text = "Join"
+
+[node name="SocketIO" type="Node" parent="." unique_id=712662982]
+script = ExtResource("11_kvpfn")
+socket_path = ""
+base_url = "http://127.0.0.1:5000"
+
+[connection signal="httpResponse" from="." to="RoomJoinUI/Window/CreateWindow" method="_on_control_http_response"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="pressed" from="RoomJoinUI/Window/MainWindow/VBoxContainer/Create" to="RoomJoinUI/Window/CreateWindow" method="_on_create_pressed"]
+[connection signal="pressed" from="RoomJoinUI/Window/MainWindow/VBoxContainer/Join" to="RoomJoinUI/Window/JoinWindow" method="_on_join_pressed"]
+[connection signal="pressed" from="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join" to="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join" method="_on_pressed"]
+
+[editable path="RoomJoinUI/Window"]
+[editable path="RoomJoinUI/Window/MainWindow/VBoxContainer/Create"]
+[editable path="RoomJoinUI/Window/MainWindow/VBoxContainer/Join"]
+[editable path="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join"]
