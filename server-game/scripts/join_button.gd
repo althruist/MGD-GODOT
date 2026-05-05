@@ -2,10 +2,13 @@ extends TextureButton
 
 @export var input: LineEdit
 @export var mainControl: Control
+@export var colorRect: ColorRect
 
 func _on_pressed() -> void:
 	print(input.text)
 	mainControl.join_game(input.text)
+	await get_tree().create_timer(0.4).timeout
+	colorRect.visible = false
 
 func _on_button_down() -> void:
 	$AnimationPlayer.play("Down")

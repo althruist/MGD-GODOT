@@ -11,7 +11,7 @@ func _on_create_pressed() -> void:
 
 func _on_control_http_response(response: Variant) -> void:
 	print(response)
-	if response.has("game_id"):
-		$VBoxContainer/Code.text = str(response["game_id"][0])
-	elif response.has("logged_in"):
+	if response.has("logged_in"):
 		windowAnimator.play_backwards("In")
+	elif response.has("game_id"):
+		$VBoxContainer/Code.text = str(response["game_id"])

@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_socketio import SocketIO, emit, join_room
-import json
 import uuid
 import random
 
 app = Flask(__name__)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 @app.route("/")
 def home():
@@ -49,21 +49,52 @@ def join_game(game_id):
     return player_token, None # Return the player token and no error
 
 
-@app.route('/api/create_game', methods=['POST'])
-def api_create_game():
-    game_id = create_game()
-    return jsonify({"game_id": game_id}), 200
+# @app.route('/api/create_game', methods=['POST'])
+# def api_create_game():
+#     game_id, player_token = create_game()
+#     return jsonify({
+#         "game_id": game_id,
+#         "player_token": player_token,
+#         "logged_in": True
+#     }), 200
 
-@app.route('/api/join_game', methods=['POST'])
-def api_join_game():
-    data = request.get_json()
-    game_id = data.get("game_id")
+# @app.route('/api/join_game', methods=['POST'])
+# def api_join_game():
+#     data = request.get_json()
+#     game_id = data.get("game_id")
+#     if not game_id:
+#         return jsonify({"error": "Game ID is required."}), 400
+#     player_token, error = join_game(game_id)
+#     if not player_token:
+#         return jsonify({"error": error}), 400
+#     return jsonify({"player_token": player_token, "logged_in": True}), 200
+
+@socketio.on("create_game")
+def socket_create_game(data=None):
+    game_id, player_token = create_game()
+    join_room(game_id)
+    emit("create_game_response", {
+        "game_id": game_id,
+        "player_token": player_token
+    })
+
+@socketio.on("join_game")
+def socket_join_game(data):
+    game_id = data.get("game_id") if data else None
     if not game_id:
-        return jsonify({"error": "Game ID is required."}), 400
+        emit("join_game_response", {"error": "Game ID is required."})
+        return
+
     player_token, error = join_game(game_id)
     if not player_token:
-        return jsonify({"error": error}), 400
-    return jsonify({"player_token": player_token, "logged_in": True}), 200
+        emit("join_game_response", {"error": error})
+        return
+
+    join_room(game_id)
+    emit("join_game_response", {
+        "player_token": player_token,
+        "logged_in": True
+    }, to=game_id)
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1",port=5000)
+    socketio.run(app, host="127.0.0.1", port=5000)

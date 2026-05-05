@@ -253,37 +253,14 @@ texture = SubResource("PlaceholderTexture2D_lbhrr")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=845533181]
 
-[node name="RoomJoinUI" type="Control" parent="." unique_id=1782688668]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SocketIO" type="Node" parent="." unique_id=712662982]
+script = ExtResource("11_kvpfn")
+base_url = "http://127.0.0.1:5000"
 
-[node name="ColorRect" type="ColorRect" parent="RoomJoinUI" unique_id=517840338]
+[node name="RoomWindowUI" parent="." unique_id=1133018686 instance=ExtResource("4_p57ef")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.41960785)
 
-[node name="Window" parent="RoomJoinUI" unique_id=1133018686 instance=ExtResource("4_p57ef")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.076157406
-anchor_top = 0.31744793
-anchor_right = 0.9238426
-anchor_bottom = 0.6825521
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-metadata/_edit_use_anchors_ = true
-
-[node name="MainWindow" type="Control" parent="RoomJoinUI/Window" unique_id=149330547]
+[node name="MainWindow" type="Control" parent="RoomWindowUI/Window" parent_id_path=PackedInt32Array(1133018686, 1133018686) index="1" unique_id=149330547]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -292,7 +269,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RoomJoinUI/Window/MainWindow" unique_id=1789564762]
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomWindowUI/Window/MainWindow" unique_id=1789564762]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -307,16 +284,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 70
 
-[node name="Create" parent="RoomJoinUI/Window/MainWindow/VBoxContainer" unique_id=1417608839 instance=ExtResource("5_gee14")]
+[node name="Create" parent="RoomWindowUI/Window/MainWindow/VBoxContainer" unique_id=1417608839 instance=ExtResource("5_gee14")]
 layout_mode = 2
 
-[node name="Join" parent="RoomJoinUI/Window/MainWindow/VBoxContainer" unique_id=585639710 instance=ExtResource("5_gee14")]
+[node name="Join" parent="RoomWindowUI/Window/MainWindow/VBoxContainer" unique_id=585639710 instance=ExtResource("5_gee14")]
 layout_mode = 2
 
-[node name="Label" parent="RoomJoinUI/Window/MainWindow/VBoxContainer/Join/NinePatchRect" parent_id_path=PackedInt32Array(585639710, 1698111207) index="0" unique_id=901177049]
+[node name="Label" parent="RoomWindowUI/Window/MainWindow/VBoxContainer/Join/NinePatchRect" parent_id_path=PackedInt32Array(585639710, 1698111207) index="0" unique_id=901177049]
 text = "Join"
 
-[node name="CreateWindow" type="Control" parent="RoomJoinUI/Window" unique_id=1293659954 node_paths=PackedStringArray("mainWindow", "mainControl", "windowAnimator")]
+[node name="CreateWindow" type="Control" parent="RoomWindowUI/Window" parent_id_path=PackedInt32Array(1133018686, 1133018686) index="2" unique_id=1293659954 node_paths=PackedStringArray("mainWindow", "mainControl", "windowAnimator")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -330,7 +307,7 @@ mainWindow = NodePath("../MainWindow")
 mainControl = NodePath("../../..")
 windowAnimator = NodePath("../AnimationPlayer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RoomJoinUI/Window/CreateWindow" unique_id=1445927456]
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomWindowUI/Window/CreateWindow" unique_id=1445927456]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -345,7 +322,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 70
 
-[node name="Code" type="Label" parent="RoomJoinUI/Window/CreateWindow/VBoxContainer" unique_id=306282150]
+[node name="Code" type="Label" parent="RoomWindowUI/Window/CreateWindow/VBoxContainer" unique_id=306282150]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 text = "-"
@@ -353,7 +330,7 @@ label_settings = SubResource("LabelSettings_gee14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SendCode" type="Label" parent="RoomJoinUI/Window/CreateWindow/VBoxContainer" unique_id=2027625988]
+[node name="SendCode" type="Label" parent="RoomWindowUI/Window/CreateWindow/VBoxContainer" unique_id=2027625988]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "send this code to your friend!"
@@ -361,7 +338,7 @@ label_settings = SubResource("LabelSettings_0tnpc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="JoinWindow" type="Control" parent="RoomJoinUI/Window" unique_id=1775855334 node_paths=PackedStringArray("mainWindow")]
+[node name="JoinWindow" type="Control" parent="RoomWindowUI/Window" parent_id_path=PackedInt32Array(1133018686, 1133018686) index="3" unique_id=1775855334 node_paths=PackedStringArray("mainWindow")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -373,7 +350,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("6_0tnpc")
 mainWindow = NodePath("../MainWindow")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RoomJoinUI/Window/JoinWindow" unique_id=1660895915]
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomWindowUI/Window/JoinWindow" unique_id=1660895915]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -388,11 +365,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 70
 
-[node name="Input" type="TextureRect" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer" unique_id=1381857796]
+[node name="Input" type="TextureRect" parent="RoomWindowUI/Window/JoinWindow/VBoxContainer" unique_id=1381857796]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer/Input" unique_id=1710500371]
+[node name="NinePatchRect" type="NinePatchRect" parent="RoomWindowUI/Window/JoinWindow/VBoxContainer/Input" unique_id=1710500371]
 self_modulate = Color(0.1318213, 0.28966853, 0.33625087, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -406,7 +383,7 @@ patch_margin_top = 100
 patch_margin_right = 100
 patch_margin_bottom = 100
 
-[node name="LineEdit" type="LineEdit" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer/Input/NinePatchRect" unique_id=1565457310]
+[node name="LineEdit" type="LineEdit" parent="RoomWindowUI/Window/JoinWindow/VBoxContainer/Input/NinePatchRect" unique_id=1565457310]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 15
@@ -429,27 +406,22 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vtaks")
 placeholder_text = "Input Code Here"
 alignment = 1
 
-[node name="Join" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer" unique_id=503901649 node_paths=PackedStringArray("input", "mainControl") instance=ExtResource("5_gee14")]
+[node name="Join" parent="RoomWindowUI/Window/JoinWindow/VBoxContainer" unique_id=503901649 node_paths=PackedStringArray("input", "mainControl", "colorRect") instance=ExtResource("5_gee14")]
 layout_mode = 2
 script = ExtResource("6_kvpfn")
 input = NodePath("../Input/NinePatchRect/LineEdit")
 mainControl = NodePath("../../../../..")
+colorRect = NodePath("../../../..")
 
-[node name="Label" parent="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join/NinePatchRect" parent_id_path=PackedInt32Array(503901649, 1698111207) index="0" unique_id=901177049]
+[node name="Label" parent="RoomWindowUI/Window/JoinWindow/VBoxContainer/Join/NinePatchRect" parent_id_path=PackedInt32Array(503901649, 1698111207) index="0" unique_id=901177049]
 text = "Join"
 
-[node name="SocketIO" type="Node" parent="." unique_id=712662982]
-script = ExtResource("11_kvpfn")
-socket_path = ""
-base_url = "http://127.0.0.1:5000"
+[connection signal="httpResponse" from="." to="RoomWindowUI/Window/CreateWindow" method="_on_control_http_response"]
+[connection signal="pressed" from="RoomWindowUI/Window/MainWindow/VBoxContainer/Create" to="RoomWindowUI/Window/CreateWindow" method="_on_create_pressed"]
+[connection signal="pressed" from="RoomWindowUI/Window/MainWindow/VBoxContainer/Join" to="RoomWindowUI/Window/JoinWindow" method="_on_join_pressed"]
+[connection signal="pressed" from="RoomWindowUI/Window/JoinWindow/VBoxContainer/Join" to="RoomWindowUI/Window/JoinWindow/VBoxContainer/Join" method="_on_pressed"]
 
-[connection signal="httpResponse" from="." to="RoomJoinUI/Window/CreateWindow" method="_on_control_http_response"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
-[connection signal="pressed" from="RoomJoinUI/Window/MainWindow/VBoxContainer/Create" to="RoomJoinUI/Window/CreateWindow" method="_on_create_pressed"]
-[connection signal="pressed" from="RoomJoinUI/Window/MainWindow/VBoxContainer/Join" to="RoomJoinUI/Window/JoinWindow" method="_on_join_pressed"]
-[connection signal="pressed" from="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join" to="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join" method="_on_pressed"]
-
-[editable path="RoomJoinUI/Window"]
-[editable path="RoomJoinUI/Window/MainWindow/VBoxContainer/Create"]
-[editable path="RoomJoinUI/Window/MainWindow/VBoxContainer/Join"]
-[editable path="RoomJoinUI/Window/JoinWindow/VBoxContainer/Join"]
+[editable path="RoomWindowUI"]
+[editable path="RoomWindowUI/Window/MainWindow/VBoxContainer/Create"]
+[editable path="RoomWindowUI/Window/MainWindow/VBoxContainer/Join"]
+[editable path="RoomWindowUI/Window/JoinWindow/VBoxContainer/Join"]

@@ -225,7 +225,7 @@ func _on_message(body: String = ""):
 
 
 func _on_noop():
-	push_error("NOOP received which is not handled yet")
+	pass
 
 
 func _poll():
