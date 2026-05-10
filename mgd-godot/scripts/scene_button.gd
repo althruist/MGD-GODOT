@@ -7,6 +7,7 @@ enum Navigate {
 
 @export var navigate: Navigate
 @export var root: Control
+@export var scene: PackedScene
 
 func _on_button_down() -> void:
 	$"AnimationPlayer".play("SceneButton/Down")
