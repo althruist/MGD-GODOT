@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bfbipk8w48bto" path="res://images/background.png" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dah7mpm2kaj21" path="res://images/board.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://cbftbw2xg6ntv" path="res://images/playerbutton.png" id="4_dinhu"]
-[ext_resource type="Script" uid="uid://colwg8ashxrm0" path="res://scripts/player_plate.gd" id="4_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dt75htjk5hxh4" path="res://components/window.tscn" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dy1wopka0o7xn" path="res://scenes/button.tscn" id="5_gee14"]
 [ext_resource type="Texture2D" uid="uid://bjwwpbicffq63" path="res://images/button.png" id="5_u5sy4"]
@@ -141,6 +140,10 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_kvuet"]
+font = ExtResource("6_gee14")
+font_size = 82
+
 [node name="Control" type="Control" unique_id=1763599696]
 layout_mode = 3
 anchors_preset = 15
@@ -196,12 +199,10 @@ theme_override_constants/h_separation = 185
 theme_override_constants/v_separation = 185
 columns = 3
 
-[node name="PlayerPlate" type="Control" parent="Board/GridContainer" unique_id=919435894 node_paths=PackedStringArray("main")]
+[node name="PlayerPlate" type="Control" parent="Board/GridContainer" unique_id=919435894]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
 custom_minimum_size = Vector2(137, 137)
 layout_mode = 2
-script = ExtResource("4_kvuet")
-main = NodePath("../../..")
 
 [node name="TextureRect" type="TextureRect" parent="Board/GridContainer/PlayerPlate" unique_id=1177372378]
 layout_mode = 1
@@ -239,6 +240,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 1
 
 [node name="PlayerPlate2" type="Control" parent="Board/GridContainer" unique_id=2081995098]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
@@ -256,6 +258,33 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
 
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate2/TextureRect" unique_id=792936094]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 2
+
 [node name="PlayerPlate3" type="Control" parent="Board/GridContainer" unique_id=742601060]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
 custom_minimum_size = Vector2(137, 137)
@@ -271,6 +300,33 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
+
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate3/TextureRect" unique_id=1715925546]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 3
 
 [node name="PlayerPlate4" type="Control" parent="Board/GridContainer" unique_id=56225988]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
@@ -288,6 +344,33 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
 
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate4/TextureRect" unique_id=1742650727]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 4
+
 [node name="PlayerPlate5" type="Control" parent="Board/GridContainer" unique_id=1069814119]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
 custom_minimum_size = Vector2(137, 137)
@@ -303,6 +386,33 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
+
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate5/TextureRect" unique_id=756715783]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 5
 
 [node name="PlayerPlate6" type="Control" parent="Board/GridContainer" unique_id=713708194]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
@@ -320,6 +430,33 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
 
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate6/TextureRect" unique_id=380789779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 6
+
 [node name="PlayerPlate7" type="Control" parent="Board/GridContainer" unique_id=1065059966]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
 custom_minimum_size = Vector2(137, 137)
@@ -335,6 +472,33 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
+
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate7/TextureRect" unique_id=59962513]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 7
 
 [node name="PlayerPlate8" type="Control" parent="Board/GridContainer" unique_id=1806964629]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
@@ -352,6 +516,33 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
 
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate8/TextureRect" unique_id=1612719255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 8
+
 [node name="PlayerPlate9" type="Control" parent="Board/GridContainer" unique_id=858068738]
 modulate = Color(0.18521142, 0.2278361, 0.34383667, 1)
 custom_minimum_size = Vector2(137, 137)
@@ -367,6 +558,33 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_dinhu")
 expand_mode = 2
+
+[node name="Button" type="Button" parent="Board/GridContainer/PlayerPlate9/TextureRect" unique_id=129140633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rysoc")
+metadata/index = 9
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=845533181]
 
@@ -537,8 +755,30 @@ colorRect = NodePath("../../../..")
 [node name="Label" parent="RoomWindowUI/Window/JoinWindow/VBoxContainer/Join/NinePatchRect" parent_id_path=PackedInt32Array(503901649, 1698111207) index="0" unique_id=901177049]
 text = "Join"
 
+[node name="Label" type="Label" parent="." unique_id=798776183]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -392.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Create or join"
+label_settings = SubResource("LabelSettings_kvuet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="httpResponse" from="." to="RoomWindowUI/Window/CreateWindow" method="_on_control_http_response"]
-[connection signal="pressed" from="Board/GridContainer/PlayerPlate/Button" to="Board/GridContainer/PlayerPlate" method="_on_button_pressed"]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate/Button" to="." method="_on_board_button_pressed" binds= [1]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate2/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [2]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate3/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [3]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate4/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [4]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate5/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [5]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate6/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [6]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate7/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [7]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate8/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [8]]
+[connection signal="pressed" from="Board/GridContainer/PlayerPlate9/TextureRect/Button" to="." method="_on_board_button_pressed" binds= [9]]
 [connection signal="pressed" from="RoomWindowUI/Window/MainWindow/VBoxContainer/Create" to="RoomWindowUI/Window/CreateWindow" method="_on_create_pressed"]
 [connection signal="pressed" from="RoomWindowUI/Window/MainWindow/VBoxContainer/Join" to="RoomWindowUI/Window/JoinWindow" method="_on_join_pressed"]
 [connection signal="pressed" from="RoomWindowUI/Window/JoinWindow/VBoxContainer/Join" to="RoomWindowUI/Window/JoinWindow/VBoxContainer/Join" method="_on_pressed"]

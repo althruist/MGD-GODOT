@@ -5,7 +5,6 @@ extends TextureButton
 @export var colorRect: ColorRect
 
 func _on_pressed() -> void:
-	print(input.text)
 	mainControl.join_game(input.text)
 	await get_tree().create_timer(0.4).timeout
 

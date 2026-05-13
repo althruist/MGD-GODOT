@@ -59,7 +59,7 @@ func _process(_delta):
 		return
 
 	_websocket.poll()
-	var _socket_state := _websocket.get_ready_state()
+	var _socket_state = _websocket.get_ready_state()
 	if _socket_state == WebSocketPeer.STATE_OPEN:
 		if not _probe_sent:
 			_websocket_send(EnginePacketType.PING, "probe")
@@ -135,7 +135,7 @@ func _clear_values():
 
 
 func _parse_packet(data: String):
-	var messages := data.split("")
+	var messages = data.split("")
 	for message in messages:
 		match _get_packet_type(message):
 			EnginePacketType.OPEN:

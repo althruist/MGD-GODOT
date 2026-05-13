@@ -12,7 +12,6 @@ func _on_create_pressed() -> void:
 	
 
 func _on_control_http_response(response: Variant) -> void:
-	print(response)
 	if response.has("logged_in"):
 		pass
 		windowAnimator.play_backwards("In")

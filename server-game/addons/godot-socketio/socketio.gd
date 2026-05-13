@@ -34,7 +34,7 @@ signal socket_disconnected()
 @export var default_namespace: String = ""
 @export var socket_path = "/socket.io"
 
-var _namespaces := {}
+var _namespaces = {}
 
 func _ready():
 	self.path = socket_path
@@ -196,7 +196,7 @@ func _socket_parse_packet(data: String):
 	data = data.substr(1)
 
 	if data.begins_with("/"): # this is from a custom namespace
-		var sepretator_index := data.find(",")
+		var sepretator_index = data.find(",")
 		if sepretator_index == -1:
 			push_error("An error occurred in parsing socket packet data, payload starts with an spash (/) but no separator found")
 			return
